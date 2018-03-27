@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Motorok - Detail</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+</head>
+
+<body>
+
+
+    <nav class="nav-extended">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Logo</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li>
+                    <a href="sass.html">Sass</a>
+                </li>
+                <li>
+                    <a href="badges.html">Components</a>
+                </li>
+                <li>
+                    <a href="collapsible.html">JavaScript</a>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-content">
+            <ul class="tabs tabs-transparent">
+                <li class="tab">
+                    <a href="#tab1">Detalles</a>
+                </li>
+                <li class="tab">
+                    <a href="#tab2">Editar</a>
+                </li>
+                <li class="tab ">
+                    <a class="active" href="#tab3">Agregar</a>
+                </li>
+                <li class="tab disabled">
+                    <a href="#tab4">Opciones</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li>
+            <a href="sass.html">Sass</a>
+        </li>
+        <li>
+            <a href="badges.html">Components</a>
+        </li>
+        <li>
+            <a href="collapsible.html">JavaScript</a>
+        </li>
+    </ul>
+
+    <div id="tab1" class="col s12">
+        Detalles del vehículo
+    </div>
+    <div id="tab2" class="col s12">
+        Editar un vehículo
+    </div>
+    <div id="tab3" class="col s12">
+
+
+        <div class="container">
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="vhAlias" type="text" class="validate">
+                            <label for="vhAlias">Alias</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="vhBrand" type="text" class="validate">
+                            <label for="vhBrand">Marca</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="vhModel" type="text" class="validate">
+                            <label for="vhModel">Modelo</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="vhMotor" type="text" class="validate">
+                            <label for="vhMotor">Motor</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="vhPower" type="text" class="validate">
+                            <label for="vhPower">Potencia</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="vhPlate" type="text" class="validate">
+                            <label for="vhPlate">Matrícula</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="vhKm" type="text" class="validate">
+                            <label for="vhKm">Kilometros</label>
+                        </div>
+                        <div class="file-field input-field col s12">
+                            <div class="btn">
+                                <span>Imagen</span>
+                                <input type="file">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" placeholder="Foto del vehículo">
+                            </div>
+                        </div>
+                    </div>
+                    <input class="btn waves-effect waves-light" type="submit" value="Guardar">
+
+                </form>
+            </div>
+        </div>
+
+
+
+    </div>
+    <div id="tab4" class="col s12">
+        Opciones
+    </div>
+
+
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Footer Content</h5>
+                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li>
+                            <a class="grey-text text-lighten-3" href="#!">Link 1</a>
+                        </li>
+                        <li>
+                            <a class="grey-text text-lighten-3" href="#!">Link 2</a>
+                        </li>
+                        <li>
+                            <a class="grey-text text-lighten-3" href="#!">Link 3</a>
+                        </li>
+                        <li>
+                            <a class="grey-text text-lighten-3" href="#!">Link 4</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2014 Copyright Text
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            M.AutoInit()
+        });
+    </script>
+</body>
+
+</html>
