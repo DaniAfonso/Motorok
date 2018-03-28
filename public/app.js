@@ -1,26 +1,15 @@
-const CreateUser = document.querySelector('.CreateUser')
-CreateUser.addEventListener('submit', (e) => {
+const CreateVh = document.querySelector('.CreateVh')
+CreateVh.addEventListener('submit', (e) => {
   e.preventDefault()
-  const username = CreateUser.querySelector('.username').value
-  const password = CreateUser.querySelector('.password').value
-  post('/createUser', { username, password })
-})
-
-const Login = document.querySelector('.Login')
-Login.addEventListener('submit', (e) => {
-  e.preventDefault()
-  const username = Login.querySelector('.username').value
-  const password = Login.querySelector('.password').value
-  post('/login', { username, password })
-    .then(({ status }) => {
-      if (status === 200) {
-        document.getElementById("mensaje").innerHTML = "Log perfect";
-        document.location.href = "./detail.html";
-      }
-      else {
-        document.getElementById("mensaje").innerHTML = "Log error";
-      }
-    })
+  const idUsr = "5"
+  const ali = CreateVh.querySelector('#vhAlias').value
+  const mar = CreateVh.querySelector('#vhBrand').value
+  const mod = CreateVh.querySelector('#vhModel').value
+  const mot = CreateVh.querySelector('#vhMotor').value
+  const pot = CreateVh.querySelector('#vhPower').value
+  const mat = CreateVh.querySelector('#vhPlate').value
+  const kms = CreateVh.querySelector('#vhKm').value
+  post('/createVh', { idUsr, ali, mar, mod, mot, pot, mat, kms })
 })
 
 function post(path, data) {

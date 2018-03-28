@@ -25,6 +25,20 @@ app.post('/login', (req, res) => {
       else res.sendStatus(401)
     })
 })
+app.post('/createVh', (req, res) => {
+  store
+    .createVh({
+      userId: req.body.idUsr,
+      alias: req.body.ali,
+      marca: req.body.mar,
+      modelo: req.body.mod,
+      motor: req.body.mot,
+      potencia: req.body.pot,
+      matricula: req.body.mat,
+      km: req.body.kms
+    })
+    .then(() => res.sendStatus(200))
+})
 
 app.listen(7555, () => {
   console.log('Server running on http://localhost:7555')

@@ -18,9 +18,7 @@
   "homepage": "https://github.com/DaniAfonso/Motorok#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
-    "crypto": "^1.0.1",
     "express": "^4.16.3",
-    "jquery": "^3.3.1",
     "jsdom": "^11.6.2",
     "knex": "^0.14.4",
     "materialize-css": "^1.0.0-beta",
