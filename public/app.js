@@ -9,17 +9,20 @@ function post(path, data) {
   })
 }
 
-function get(path, data) {
-  return window.fetch(path)
-    .then(function (response) {
-      return response.blob();
+function get(path) {
+  return window.fetch(path, {
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((responseData) => {
+      console.log(responseData);
+      return responseData;
     })
-    .then(function (a) {
-      console.log("Llega aqui")
-      console.log(a)
-      let r = URL.createObjectURL(a)
-      console.log(r)
-    });
+    .catch(error => console.log(error));
 }
 
 const CreateVh = document.querySelector('.CreateVh')
@@ -35,7 +38,7 @@ CreateVh.addEventListener('submit', (e) => {
   const kms = CreateVh.querySelector('#vhKm').value
   post('/createVh', { ali, mar, mod, mot, pot, mat, kms })
 })
-/*
+
 const UpdateVh = document.querySelector('.UpdateVh')
 UpdateVh.addEventListener('submit', (e) => {
   e.preventDefault()
@@ -49,8 +52,8 @@ UpdateVh.addEventListener('submit', (e) => {
       }
     })
 })
-*/
 
+/*
 const UpdateVh = document.querySelector('.UpdateVh')
 UpdateVh.addEventListener('submit', (e) => {
   e.preventDefault()
@@ -64,4 +67,4 @@ UpdateVh.addEventListener('submit', (e) => {
       }
     })
 })
-
+*/
