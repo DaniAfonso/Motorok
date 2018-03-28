@@ -1,5 +1,6 @@
 const crypto = require('crypto')
 const knex = require('knex')(require('./knexfile'))
+global.userIdent;
 
 module.exports = {
   createUser({ username, password }) {
@@ -20,6 +21,8 @@ module.exports = {
           password,
           salt: user.salt
         })
+        global.userIdent = user.id;
+        console.log(global.userIdent)
         return { success: hash === user.encrypted_password }
       })
   },
@@ -29,15 +32,31 @@ module.exports = {
       userId, alias, marca, modelo, motor, potencia, matricula, km
     }).debug()
   },
-  getAll({ idUsr }) {
+  /*
+  getAll({ userId }) {
     console.log(`Search vh history`)
-    return knex('vh').where({ idUsr })
-      .then(([idUser]) => {
-        if (!idUser) return { success: false }
+    console.log(userId)
+    return knex('vh').where({ userId })
+      .then(([vh]) => {
+        console.log(vh)
+        if (!vh) return { success: false }
         else return { success: true }
       })
   }
 }
+*/
+  getAll({ userId }) {
+    console.log(`Search vh history`)
+    console.log(`User id` + userId)
+    return knex('vh').where({ userId }).then(function (element) {
+      //do something here
+      console.log(element);
+      if (!element) return { success: false }
+      else return { success: true }
+    });
+  }
+}
+
 
 function saltHashPassword({
   password,

@@ -1,17 +1,3 @@
-const CreateVh = document.querySelector('.CreateVh')
-CreateVh.addEventListener('submit', (e) => {
-  e.preventDefault()
-  const idUsr = "5"
-  const ali = CreateVh.querySelector('#vhAlias').value
-  const mar = CreateVh.querySelector('#vhBrand').value
-  const mod = CreateVh.querySelector('#vhModel').value
-  const mot = CreateVh.querySelector('#vhMotor').value
-  const pot = CreateVh.querySelector('#vhPower').value
-  const mat = CreateVh.querySelector('#vhPlate').value
-  const kms = CreateVh.querySelector('#vhKm').value
-  post('/createVh', { idUsr, ali, mar, mod, mot, pot, mat, kms })
-})
-
 function post(path, data) {
   return window.fetch(path, {
     method: 'POST',
@@ -22,3 +8,43 @@ function post(path, data) {
     body: JSON.stringify(data)
   })
 }
+
+function get(path, data) {
+  return window.fetch(path)
+  .then(function(response) {
+    return response.blob();
+  })
+  .then(function(myBlob) {
+    var objectURL = URL.createObjectURL(myBlob);
+    miImagen.src = objectURL;
+  });
+}
+
+const CreateVh = document.querySelector('.CreateVh')
+CreateVh.addEventListener('submit', (e) => {
+  e.preventDefault()
+  //const idUsr = userIdentificador
+  const ali = CreateVh.querySelector('#vhAlias').value
+  const mar = CreateVh.querySelector('#vhBrand').value
+  const mod = CreateVh.querySelector('#vhModel').value
+  const mot = CreateVh.querySelector('#vhMotor').value
+  const pot = CreateVh.querySelector('#vhPower').value
+  const mat = CreateVh.querySelector('#vhPlate').value
+  const kms = CreateVh.querySelector('#vhKm').value
+  post('/createVh', { ali, mar, mod, mot, pot, mat, kms })
+})
+
+const UpdateVh = document.querySelector('.UpdateVh')
+UpdateVh.addEventListener('submit', (e) => {
+  e.preventDefault()
+  post('/getAll')
+    .then(({ status }) => {
+      if (status === 200) {
+        console.log(`Todo OK`)
+      }
+      else {
+        console.log(`Todo mal!!!!!!!`)
+      }
+    })
+})
+

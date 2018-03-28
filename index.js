@@ -21,6 +21,7 @@ app.post('/login', (req, res) => {
       password: req.body.password
     })
     .then(({ success }) => {
+      //console.log(res)
       if (success) res.sendStatus(200)
       else res.sendStatus(401)
     })
@@ -28,7 +29,7 @@ app.post('/login', (req, res) => {
 app.post('/createVh', (req, res) => {
   store
     .createVh({
-      userId: req.body.idUsr,
+      userId: global.userIdent,
       alias: req.body.ali,
       marca: req.body.mar,
       modelo: req.body.mod,
@@ -38,6 +39,16 @@ app.post('/createVh', (req, res) => {
       km: req.body.kms
     })
     .then(() => res.sendStatus(200))
+})
+app.post('/getAll', (req, res) => {
+  store
+    //.getAll({ userId: global.userIdent })
+    .getAll({ userId: 5 })
+    .then(({ success }) => {
+      //console.log(res)
+      if (success) res.sendStatus(200)
+      else res.sendStatus(401)
+    })
 })
 
 app.listen(7555, () => {
