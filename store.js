@@ -32,19 +32,6 @@ module.exports = {
       userId, alias, marca, modelo, motor, potencia, matricula, km
     }).debug()
   },
-  /*
-  getAll({ userId }) {
-    console.log(`Search vh history`)
-    console.log(userId)
-    return knex('vh').where({ userId })
-      .then(([vh]) => {
-        console.log(vh)
-        if (!vh) return { success: false }
-        else return { success: true }
-      })
-  }
-}
-*/
   getAll({ userId }) {
     console.log(`Search vh history`)
     console.log(`User id` + userId)
@@ -53,10 +40,9 @@ module.exports = {
       console.log(element);
       if (!element) return { success: false }
       else return { success: true }
-    });
+    })
   }
 }
-
 
 function saltHashPassword({
   password,

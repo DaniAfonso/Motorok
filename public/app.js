@@ -11,13 +11,15 @@ function post(path, data) {
 
 function get(path, data) {
   return window.fetch(path)
-  .then(function(response) {
-    return response.blob();
-  })
-  .then(function(myBlob) {
-    var objectURL = URL.createObjectURL(myBlob);
-    miImagen.src = objectURL;
-  });
+    .then(function (response) {
+      return response.blob();
+    })
+    .then(function (a) {
+      console.log("Llega aqui")
+      console.log(a)
+      let r = URL.createObjectURL(a)
+      console.log(r)
+    });
 }
 
 const CreateVh = document.querySelector('.CreateVh')
@@ -33,6 +35,21 @@ CreateVh.addEventListener('submit', (e) => {
   const kms = CreateVh.querySelector('#vhKm').value
   post('/createVh', { ali, mar, mod, mot, pot, mat, kms })
 })
+/*
+const UpdateVh = document.querySelector('.UpdateVh')
+UpdateVh.addEventListener('submit', (e) => {
+  e.preventDefault()
+  get('/getAll')
+    .then(({ status }) => {
+      if (status === 200) {
+        console.log(`Todo OK`)
+      }
+      else {
+        console.log(`Todo mal!!!!!!!`)
+      }
+    })
+})
+*/
 
 const UpdateVh = document.querySelector('.UpdateVh')
 UpdateVh.addEventListener('submit', (e) => {
