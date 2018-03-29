@@ -40,15 +40,29 @@ app.post('/createVh', (req, res) => {
     })
     .then(() => res.sendStatus(200))
 })
-app.post('/getAll', (req, res) => {
+app.get('/getAll', (req, res) => {
   store
     //.getAll({ userId: global.userIdent })
     .getAll({ userId: 5 })
-    .then(({ success }) => {
+    
+    
+    .then(({ success, dat }) => {
       //console.log(res)
-      if (success) res.sendStatus(200)
-      else res.sendStatus(401)
+      if (success) {
+        
+        //res.sendStatus(200)
+        res.send(dat)
+        //res.end(dat)
+        //res.sendFile(dat);
+        //console.log(res)
+        //console.log("True " + success)
+      }
+      else {
+        res.sendStatus(401)
+        //console.log("False " + success)
+      }
     })
+    
 })
 
 app.listen(7555, () => {

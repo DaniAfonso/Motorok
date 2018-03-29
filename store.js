@@ -22,7 +22,6 @@ module.exports = {
           salt: user.salt
         })
         global.userIdent = user.id;
-        console.log(global.userIdent)
         return { success: hash === user.encrypted_password }
       })
   },
@@ -34,12 +33,12 @@ module.exports = {
   },
   getAll({ userId }) {
     console.log(`Search vh history`)
-    console.log(`User id` + userId)
+    console.log(`User id: ` + userId)
     return knex('vh').where({ userId }).then(function (element) {
       //do something here
-      console.log(element);
+      //console.log(element);
       if (!element) return { success: false }
-      else return { success: true }
+      else return { success: true, dat: element }
     })
   }
 }

@@ -10,19 +10,7 @@ function post(path, data) {
 }
 
 function get(path) {
-  return window.fetch(path, {
-    method: 'GET',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-    },
-  })
-    .then((response) => response.json())
-    .then((responseData) => {
-      console.log(responseData);
-      return responseData;
-    })
-    .catch(error => console.log(error));
+  return window.fetch(path)
 }
 
 const CreateVh = document.querySelector('.CreateVh')
@@ -42,29 +30,13 @@ CreateVh.addEventListener('submit', (e) => {
 const UpdateVh = document.querySelector('.UpdateVh')
 UpdateVh.addEventListener('submit', (e) => {
   e.preventDefault()
-  get('/getAll')
-    .then(({ status }) => {
-      if (status === 200) {
-        console.log(`Todo OK`)
-      }
-      else {
-        console.log(`Todo mal!!!!!!!`)
-      }
-    })
+  //get('https://randomuser.me/api/')
+  get('/getAll').then((res) => {
+    console.log(res)
+    return res.json()
+  })
+  .then((data) => {
+    console.log(data)
+    console.log("GET")
+  })
 })
-
-/*
-const UpdateVh = document.querySelector('.UpdateVh')
-UpdateVh.addEventListener('submit', (e) => {
-  e.preventDefault()
-  post('/getAll')
-    .then(({ status }) => {
-      if (status === 200) {
-        console.log(`Todo OK`)
-      }
-      else {
-        console.log(`Todo mal!!!!!!!`)
-      }
-    })
-})
-*/
