@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Motorok - Detail</title>
+    <title>Motorok - List</title>
     <link rel="stylesheet" href="./src/css/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
@@ -13,10 +13,11 @@
 
 <body>
 
+
     <nav class="nav-extended">
         <div class="nav-wrapper">
-            <a href="./list.html" class="brand-logo">Logo</a>
-            <a href="./list.html" data-target="mobile-demo" class="sidenav-trigger">
+            <a href="#" class="brand-logo">Logo</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger">
                 <i class="material-icons">menu</i>
             </a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -34,13 +35,13 @@
         <div class="nav-content">
             <ul class="tabs tabs-transparent">
                 <li class="tab">
-                    <a href="#tab1" class="active">Historial</a>
+                    <a href="#tab1" class="active">Lista</a>
                 </li>
                 <li class="tab">
-                    <a href="#tab2">Nuevo Mantenimiento</a>
+                    <a href="#tab2">Agregar</a>
                 </li>
-                <li class="tab ">
-                    <a href="#tab3">Editar</a>
+                <li class="tab disabled">
+                    <a href="#tab3">Opciones</a>
                 </li>
             </ul>
         </div>
@@ -61,45 +62,16 @@
     <div id="tab1" class="col s12">
 
         <div class="container">
-            <form class="UpdateMant col s12">
+            <form class="UpdateVh col s12">
                 <input class="btn waves-effect waves-light" type="submit" value="Actualizar">
             </form>
-            <div id="contentMant">
+            <div id="contentCard">
 
             </div>
         </div>
 
     </div>
     <div id="tab2" class="col s12">
-
-        <div class="container">
-            <div class="row">
-                <form class="CreateMant col s12">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="mtName" type="text" class="validate">
-                            <label for="mtName">Tipo</label>
-                        </div>
-                        <div class="input-field col s12">
-                            <input id="mtDetail" type="text" class="validate">
-                            <label for="mtDetail">Descripción</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input id="mtPrice" type="text" class="validate">
-                            <label for="mtPrice">Precio</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input id="mtKm" type="text" class="validate">
-                            <label for="mtKm">Km</label>
-                        </div>
-                    </div>
-                    <input class="btn waves-effect waves-light" type="submit" value="Guardar">
-                </form>
-            </div>
-        </div>
-
-    </div>
-    <div id="tab3" class="col s12">
 
         <div class="container">
             <div class="row">
@@ -144,10 +116,15 @@
                         </div>
                     </div>
                     <input class="btn waves-effect waves-light" type="submit" value="Guardar">
+
                 </form>
             </div>
         </div>
 
+    </div>
+
+    <div id="tab3" class="col s12">
+        Opciones
     </div>
 
     <footer class="page-footer">

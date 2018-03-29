@@ -10,7 +10,13 @@ function post(path, data) {
 }
 
 function get(path) {
-  return window.fetch(path)
+  return window.fetch(path, {
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+  })
 }
 
 const CreateVh = document.querySelector('.CreateVh')
@@ -32,11 +38,16 @@ UpdateVh.addEventListener('submit', (e) => {
   e.preventDefault()
   //get('https://randomuser.me/api/')
   get('/getAll').then((res) => {
-    console.log(res)
+    //console.log(res)
     return res.json()
   })
-  .then((data) => {
-    console.log(data)
-    console.log("GET")
-  })
+    .then((data) => {
+      //console.log(data)
+      $(data).each(function (i, e) {
+        console.log(e)
+        $("#contentCard").append(card(e))
+      })
+      addListenerBtnDetail()
+      //changeTab("#tab1", "#tab2")
+    })
 })

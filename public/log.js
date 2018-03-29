@@ -15,7 +15,7 @@ Login.addEventListener('submit', (e) => {
     .then(({ status }) => {
       if (status === 200) {
         document.getElementById("mensaje").innerHTML = "Log perfect";
-        document.location.href = "./detail.html";
+        document.location.href = "./list.html";
       }
       else {
         document.getElementById("mensaje").innerHTML = "Log error";
