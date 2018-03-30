@@ -67,6 +67,17 @@ app.get('/getAll', (req, res) => {
       }
     })
 })
+app.post('/createMt', (req, res) => {
+  store
+    .createMt({
+      vhId: req.body.id,
+      type: req.body.tip,
+      description: req.body.det,
+      price: req.body.pre,
+      km: req.body.kms
+    })
+    .then(() => res.sendStatus(200))
+})
 
 app.listen(7555, () => {
   console.log('Server running on http://localhost:7555')

@@ -43,12 +43,18 @@ module.exports = {
     console.log(`Search vh history`)
     console.log(`User id: ` + userId)
     return knex('vh').where({ userId }).then(function (element) {
-      //do something here
+      //controlar eventos
       //console.log(element);
       if (!element) return { success: false }
       else return { success: true, dat: element }
     })
-  }
+  },
+  createMt({ vhId, type, description, price, km }) {
+    console.log(`Add mt mante`)
+    return knex('mt').insert({
+      vhId, type, description, price, km
+    }).debug()
+  },
 }
 
 function saltHashPassword({
