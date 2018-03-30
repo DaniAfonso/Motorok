@@ -46,9 +46,9 @@ function classToggle(a, b) {
 function addListenerBtnDetail() {
     $(".btnDetail").each(function (i, e) {
         console.log(e)
-        e.click(function (i) {
+        $(e).click(function () {
             console.log(i)
-            document.location.href = "./detail.html/" + i;
+            document.location.href = "./detail.html#" + i;
         })
     })
 
