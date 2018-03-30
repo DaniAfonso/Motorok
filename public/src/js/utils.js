@@ -69,3 +69,14 @@ function loadLocal(k) {
     }
     return conv
 }
+
+function loadUrl() {
+    let u = document.URL
+    let p = u.search("#")
+    let f = u.slice(p + 1, u.length)
+    return f
+}
+
+function toast(m) {
+    M.toast({ html: m, classes: 'rounded' });
+}

@@ -40,29 +40,32 @@ app.post('/createVh', (req, res) => {
     })
     .then(() => res.sendStatus(200))
 })
+app.post('/editVh', (req, res) => {
+  store
+    .editVh({
+      id: req.body.id,
+      alias: req.body.ali,
+      marca: req.body.mar,
+      modelo: req.body.mod,
+      motor: req.body.mot,
+      potencia: req.body.pot,
+      matricula: req.body.mat,
+      km: req.body.kms
+    })
+    .then(() => res.sendStatus(200))
+})
 app.get('/getAll', (req, res) => {
   store
     //.getAll({ userId: global.userIdent })
     .getAll({ userId: 5 })
-    
-    
     .then(({ success, dat }) => {
-      //console.log(res)
       if (success) {
-        
-        //res.sendStatus(200)
         res.send(dat)
-        //res.end(dat)
-        //res.sendFile(dat);
-        //console.log(res)
-        //console.log("True " + success)
       }
       else {
         res.sendStatus(401)
-        //console.log("False " + success)
       }
     })
-    
 })
 
 app.listen(7555, () => {

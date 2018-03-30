@@ -31,6 +31,14 @@ module.exports = {
       userId, alias, marca, modelo, motor, potencia, matricula, km
     }).debug()
   },
+  editVh({ id, alias, marca, modelo, motor, potencia, matricula, km }) {
+    console.log(`Edit vh`)
+    return knex('vh')
+      .where("id", '=', id)
+      .update({
+        alias, marca, modelo, motor, potencia, matricula, km
+      }).debug()
+  },
   getAll({ userId }) {
     console.log(`Search vh history`)
     console.log(`User id: ` + userId)
