@@ -44,8 +44,28 @@ function classToggle(a, b) {
 }
 
 function addListenerBtnDetail() {
-    $(".btnDetail").click(function () {
-        
-        document.location.href = "./detail.html";
+    $(".btnDetail").each(function (i, e) {
+        console.log(e)
+        e.click(function (i) {
+            console.log(i)
+            document.location.href = "./detail.html/" + i;
+        })
     })
+
+}
+
+function saveLocal(k, v) {
+    localStorage.setItem(k, JSON.stringify(v));
+}
+
+function loadLocal(k) {
+    let local
+    let conv
+    local = localStorage.getItem(k)
+    if (local != null) {
+        conv = JSON.parse(local)
+    } else {
+        conv = []
+    }
+    return conv
 }

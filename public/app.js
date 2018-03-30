@@ -1,3 +1,5 @@
+let allVh = [];
+
 function post(path, data) {
   return window.fetch(path, {
     method: 'POST',
@@ -43,11 +45,17 @@ UpdateVh.addEventListener('submit', (e) => {
   })
     .then((data) => {
       //console.log(data)
-      $(data).each(function (i, e) {
-        console.log(e)
-        $("#contentCard").append(card(e))
-      })
-      addListenerBtnDetail()
+      saveLocal("allVhL", data)
+      loadVh()
       //changeTab("#tab1", "#tab2")
     })
 })
+
+function loadVh() {
+  allVh = loadLocal("allVhL")
+  $('#contentCard .card').remove()
+  $(allVh).each(function (i, e) {
+    $("#contentCard").append(card(e))
+  })
+  addListenerBtnDetail()
+}
