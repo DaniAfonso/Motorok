@@ -18,6 +18,8 @@
   "homepage": "https://github.com/DaniAfonso/Motorok#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "build": "^0.1.4",
+    "deploy": "^1.0.3",
     "express": "^4.16.3",
     "jsdom": "^11.6.2",
     "knex": "^0.14.4",

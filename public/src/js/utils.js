@@ -104,3 +104,8 @@ function loadUrl() {
 function toast(m) {
     M.toast({ html: m, classes: 'rounded' });
 }
+
+function saveCookie(u) {
+    var expiresdate = new Date(2068, 1, 02, 11, 20);
+    document.cookie = "userId=" + encodeURIComponent(u) + "; expires=" + expiresdate.toUTCString() + "; domain=.daniafonso.github.io";
+}

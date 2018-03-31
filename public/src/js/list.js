@@ -3,7 +3,7 @@ let allVh = [];
 const CreateVh = document.querySelector('.CreateVh')
 CreateVh.addEventListener('submit', (e) => {
   e.preventDefault()
-  //const idUsr = userIdentificador
+  toast("Creando el vehículo, espere por favor.")
   const ali = CreateVh.querySelector('#vhAlias').value
   const mar = CreateVh.querySelector('#vhBrand').value
   const mod = CreateVh.querySelector('#vhModel').value
@@ -12,6 +12,7 @@ CreateVh.addEventListener('submit', (e) => {
   const mat = CreateVh.querySelector('#vhPlate').value
   const kms = CreateVh.querySelector('#vhKm').value
   post('/createVh', { ali, mar, mod, mot, pot, mat, kms })
+  
 })
 
 const LoadVhs = document.querySelector('.LoadVhs')

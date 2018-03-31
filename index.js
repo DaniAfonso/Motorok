@@ -21,8 +21,9 @@ app.post('/login', (req, res) => {
       password: req.body.password
     })
     .then(({ success }) => {
-      //console.log(res)
-      if (success) res.sendStatus(200)
+      if (success) {
+        res.sendStatus(200)
+      }
       else res.sendStatus(401)
     })
 })
@@ -56,8 +57,8 @@ app.post('/editVh', (req, res) => {
 })
 app.get('/getAll', (req, res) => {
   store
-    //.getAll({ userId: global.userIdent })
-    .getAll({ userId: 5 })
+    .getAll({ userId: global.userIdent })
+    //.getAll({ userId: 5 })
     .then(({ success, dat }) => {
       if (success) {
         res.send(dat)
