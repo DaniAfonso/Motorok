@@ -22,7 +22,6 @@ Login.addEventListener('submit', (e) => {
   const username = Login.querySelector('.username').value
   const password = Login.querySelector('.password').value
   post('/login', { username, password })
-    .then(function (res) { console.log(res) })
     .then(({ status }) => {
       if (status === 200) {
         //saveCookie(id)
