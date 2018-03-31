@@ -53,7 +53,7 @@ const LoadMts = document.querySelector('.LoadMts')
 LoadMts.addEventListener('submit', (e) => {
     toast("Listando...")
     e.preventDefault()
-    get('/getMts').then((res) => {
+    get('/getMts' + '?id=' + vhActual.id).then((res) => {
         return res.json()
     })
         .then((data) => {

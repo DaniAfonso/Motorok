@@ -68,9 +68,9 @@ app.get('/getAll', (req, res) => {
     })
 })
 app.get('/getMts', (req, res) => {
+  let id = getId(req._parsedOriginalUrl.query)
   store
-    //.getAll({ userId: global.userIdent })
-    .getMts({ vhId: 6 })
+    .getMts({ vhId: id })
     .then(({ success, dat }) => {
       if (success) {
         res.send(dat)
@@ -95,3 +95,7 @@ app.post('/createMt', (req, res) => {
 app.listen(7555, () => {
   console.log('Server running on http://localhost:7555')
 })
+
+function getId(q) {
+  return q.split("=")[1]
+}
