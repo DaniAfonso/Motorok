@@ -32,6 +32,31 @@ function card(e) {
     return c;
 }
 
+function li(e) {
+    let l = `
+            <li class="collection-item avatar">
+                <i class="material-icons circle green">insert_chart</i>
+                <span class="title">` + e.type + `</span>
+                <div class='detalles'>
+                        <div>
+                            <p>Descripcion:</p>
+                            <p>Precio:</p>
+                            <p>Kms:</p>
+                        </div>
+                        <div>
+                            <p> ` + e.description + ` </p>
+                            <p> ` + e.price + ` </p>
+                            <p> ` + e.km + ` </p>
+                        </div>
+                    </div>
+                <a href="#!" class="secondary-content">
+                    <i class="material-icons">grade</i>
+                </a>
+            </li>
+            `
+    return l;
+}
+
 function changeTab(a, b) {
     $(a).hide();
     classToggle(a, "active");
@@ -51,7 +76,6 @@ function addListenerBtnDetail() {
             document.location.href = "./detail.html#" + i;
         })
     })
-
 }
 
 function saveLocal(k, v) {

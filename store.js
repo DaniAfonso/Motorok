@@ -49,6 +49,16 @@ module.exports = {
       else return { success: true, dat: element }
     })
   },
+  getMts({ vhId }) {
+    console.log(`Search mt history`)
+    console.log(`Vehi id: ` + vhId)
+    return knex('mt').where({ vhId }).then(function (element) {
+      //controlar eventos
+      //console.log(element);
+      if (!element) return { success: false }
+      else return { success: true, dat: element }
+    })
+  },
   createMt({ vhId, type, description, price, km }) {
     console.log(`Add mt mante`)
     return knex('mt').insert({

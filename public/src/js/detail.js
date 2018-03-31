@@ -1,4 +1,5 @@
 let vhActual;
+let allMt;
 
 $(document).ready(function () {
     loadVh()
@@ -24,7 +25,6 @@ function loadEdit() {
 const EditVh = document.querySelector('.EditVh')
 EditVh.addEventListener('submit', (e) => {
     e.preventDefault()
-    //const idUsr = userIdentificador
     const id = vhActual.id
     const ali = EditVh.querySelector('#vhAlias').value
     const mar = EditVh.querySelector('#vhBrand').value
@@ -48,3 +48,25 @@ CreateMt.addEventListener('submit', (e) => {
     toast("Agregando...")
     post('/createMt', { id, tip, det, pre, kms })
 })
+
+const LoadMts = document.querySelector('.LoadMts')
+LoadMts.addEventListener('submit', (e) => {
+    toast("Listando...")
+    e.preventDefault()
+    get('/getMts').then((res) => {
+        return res.json()
+    })
+        .then((data) => {
+            saveLocal("allMts", data)
+            showMts()
+        })
+})
+
+function showMts() {
+    allMt = loadLocal("allMts")
+    $('#contentMt li').remove()
+    $(allMt).each(function (i, e) {
+        $("#contentMt").append(li(e))
+    })
+    addListenerBtnDetail()
+}

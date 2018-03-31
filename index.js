@@ -67,6 +67,19 @@ app.get('/getAll', (req, res) => {
       }
     })
 })
+app.get('/getMts', (req, res) => {
+  store
+    //.getAll({ userId: global.userIdent })
+    .getMts({ vhId: 6 })
+    .then(({ success, dat }) => {
+      if (success) {
+        res.send(dat)
+      }
+      else {
+        res.sendStatus(401)
+      }
+    })
+})
 app.post('/createMt', (req, res) => {
   store
     .createMt({
