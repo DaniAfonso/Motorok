@@ -22,7 +22,7 @@ module.exports = {
           salt: user.salt
         })
         global.userIdent = user.id;
-        return { success: hash === user.encrypted_password }
+        return { success: hash === user.encrypted_password, id: user.id }
       })
   },
   createVh({ userId, alias, marca, modelo, motor, potencia, matricula, km }) {

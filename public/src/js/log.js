@@ -5,14 +5,14 @@ CreateUser.addEventListener('submit', (e) => {
   const username = CreateUser.querySelector('.username').value
   const password = CreateUser.querySelector('.password').value
   post('/createUser', { username, password })
-  .then(({ status }) => {
-    if (status === 200) {
-      toast("Cuenta de usuario creada correctamente.")
-    }
-    else {
-      toast("Ha ocurrido un error creando la cuenta de usuario.")
-    }
-  })
+    .then(({ status }) => {
+      if (status === 200) {
+        toast("Cuenta de usuario creada correctamente.")
+      }
+      else {
+        toast("Ha ocurrido un error creando la cuenta de usuario.")
+      }
+    })
 })
 
 const Login = document.querySelector('.Login')
