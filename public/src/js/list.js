@@ -39,3 +39,13 @@ function showVh() {
   })
   addListenerBtnDetail()
 }
+
+function addListenerBtnDetail() {
+  $(".btnDetail").each(function (i, e) {
+      //console.log(e)
+      $(e).click(function () {
+          console.log(i)
+          document.location.href = "./detail.html#" + i;
+      })
+  })
+}

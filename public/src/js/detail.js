@@ -68,5 +68,4 @@ function showMts() {
     $(allMt).each(function (i, e) {
         $("#contentMt").append(li(e))
     })
-    addListenerBtnDetail()
 }
