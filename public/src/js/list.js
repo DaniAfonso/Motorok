@@ -1,5 +1,9 @@
 let allVh = [];
 
+$(document).ready(function () {
+  getAllClick()
+});
+
 const CreateVh = document.querySelector('.CreateVh')
 CreateVh.addEventListener('submit', (e) => {
   e.preventDefault()
@@ -12,12 +16,16 @@ CreateVh.addEventListener('submit', (e) => {
   const mat = CreateVh.querySelector('#vhPlate').value
   const kms = CreateVh.querySelector('#vhKm').value
   post('/createVh', { ali, mar, mod, mot, pot, mat, kms })
-  
+
 })
 
 const LoadVhs = document.querySelector('.LoadVhs')
 LoadVhs.addEventListener('submit', (e) => {
   e.preventDefault()
+  getAllClick();
+})
+
+function getAllClick() {
   //get('https://randomuser.me/api/')
   get('/getAll').then((res) => {
     //console.log(res)
@@ -29,7 +37,7 @@ LoadVhs.addEventListener('submit', (e) => {
       showVh()
       //changeTab("#tab1", "#tab2")
     })
-})
+}
 
 function showVh() {
   allVh = loadLocal("allVhL")
@@ -42,10 +50,10 @@ function showVh() {
 
 function addListenerBtnDetail() {
   $(".btnDetail").each(function (i, e) {
-      //console.log(e)
-      $(e).click(function () {
-          console.log(i)
-          document.location.href = "./detail.html#" + i;
-      })
+    //console.log(e)
+    $(e).click(function () {
+      console.log(i)
+      document.location.href = "./detail.html#" + i;
+    })
   })
 }

@@ -3,6 +3,7 @@ let allMt;
 
 $(document).ready(function () {
     loadVh()
+    getAllMt()
 });
 
 function loadVh() {
@@ -53,6 +54,10 @@ const LoadMts = document.querySelector('.LoadMts')
 LoadMts.addEventListener('submit', (e) => {
     toast("Listando...")
     e.preventDefault()
+    getAllMt();
+})
+
+function getAllMt() {
     get('/getMts' + '?id=' + vhActual.id).then((res) => {
         return res.json()
     })
@@ -60,7 +65,7 @@ LoadMts.addEventListener('submit', (e) => {
             saveLocal("allMts", data)
             showMts()
         })
-})
+}
 
 function showMts() {
     allMt = loadLocal("allMts")

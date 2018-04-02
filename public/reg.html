@@ -6,27 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Motorok - Login</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 
 </head>
 
 <body>
 
-    <nav>
+    <nav class="nav-extended">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo">
+            <a href="./list.html" class="brand-logo">
                 <img height="65px" src="./src/svg/logo1.svg" alt="Logo" />
+            </a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                <i class="material-icons">menu</i>
             </a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li>
                     <a href="./index.html">Login</a>
                 </li>
                 <li>
-                    <a href="./list.html">Lista</a>
+                    <a href="./reg.html">Registro</a>
                 </li>
             </ul>
         </div>
     </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li>
+            <a href="./index.html">Login</a>
+        </li>
+        <li>
+            <a href="./reg.html">Registro</a>
+        </li>
+    </ul>
 
     <div class="container">
 
@@ -48,13 +61,14 @@
                     </div>
                 </div>
                 <input class="btn waves-effect waves-light" type="submit" value="Create">
+
             </form>
         </div>
         <div class="divider"></div>
 
-        <h1 id="mensaje"></h1>
     </div>
 
+    <div class="divider"></div>
 
     <footer class="page-footer">
         <div class="footer-copyright">
@@ -65,10 +79,17 @@
         </div>
     </footer>
 
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <script src="./src/js/utils.js"></script>
     <script src="./src/js/app.js"></script>
-    <script src="./src/js/log.js"></script>
+    <script src="./src/js/reg.js"></script>
+    <script>
+        $(document).ready(function () {
+            M.AutoInit()
+        });
+    </script>
 
 </body>
 
